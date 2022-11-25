@@ -28,3 +28,4 @@ def crearInsertar():
     aql = "INSERT @doc INTO Estudiantes LET newDoc = NEW RETURN newDoc"
     queryResult = self.db.AQLQuery(aql, bindVars=bind)
     queryResult[0]  # comprobar si se ha insertado correctamente
+    print("Todo OK!")

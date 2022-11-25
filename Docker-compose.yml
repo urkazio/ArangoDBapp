@@ -1,7 +1,0 @@
-services:
-  web:
-	image: "appArangoDB"
-	ports:
-  	- "80:5000"
-  redis:
-	image: "redis:alpine"

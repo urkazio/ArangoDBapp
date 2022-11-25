@@ -1,0 +1,12 @@
+services:
+  web:
+    restart: always
+    build: .
+    ports:
+      - "80:5000"
+  arangodb:
+          image: arangodb:latest
+    environment:
+      - ARANGO_ROOT_PASSWORD=password
+      - ARANGO_NO_AUTH=1
+      - ARANGO_STORAGE_ENGINE=rocksdb

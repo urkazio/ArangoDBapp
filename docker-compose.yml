@@ -1,14 +1,15 @@
-services:
-  app:
-    build: .
-    #ports:
-    #  - "80:5000"
+version: "3.8"
+services: 
   arangodb:
     image: arangodb:latest
-    environment:
-      - ARANGO_ROOT_PASSWORD=password
-      - ARANGO_NO_AUTH=1
-      - ARANGO_STORAGE_ENGINE=rocksdb
+    environment: 
+      ARANGO_ROOT_PASSWORD: password
     ports:
       - "8529:8529"
+    container_name: arangodb
 
+  app:
+    build: .
+    depends_on:
+      - arangodb
+    container_name: app

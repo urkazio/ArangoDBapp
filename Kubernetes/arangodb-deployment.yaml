@@ -12,8 +12,17 @@ spec:
       labels:
         bd: arangodb
     spec:
+      volumes:  
+      - name: volumen-arangodb
+        persistentVolumeClaim: 
+          claimName: mi-reclamacion
       containers:
       - name: mi-arangodb
         image: arangodb:latest
         ports:
         - containerPort: 8529
+        volumeMounts: 
+        - name: volumen-arangodb
+          #duda q path poner y si debe coincidir con el de dockercompose
+          mountPath: /var/lib/mysql/data 
+          subPath: mysql

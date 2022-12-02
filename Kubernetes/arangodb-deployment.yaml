@@ -21,6 +21,8 @@ spec:
         image: arangodb:latest
         ports:
         - containerPort: 8529
+        environment: 
+          ARANGO_ROOT_PASSWORD: password
         volumeMounts: 
         - name: volumen-arangodb
           #duda q path poner y si debe coincidir con el de dockercompose

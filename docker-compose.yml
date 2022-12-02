@@ -1,4 +1,5 @@
 version: "3.8"
+
 services: 
   arangodb:
     image: arangodb:latest
@@ -7,9 +8,14 @@ services:
     ports:
       - "8529:8529"
     container_name: arangodb
+    volumes:
+      - arangodb_data_container:/var/lib/arangodb3
+      - arangodb_apps_data_container:/var/lib/arangodb3-apps
 
   app:
     build: .
-    depends_on:
-      - arangodb
     container_name: app
+    
+volumes:
+  arangodb_data_container:
+  arangodb_apps_data_container:

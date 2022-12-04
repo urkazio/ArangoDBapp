@@ -1,29 +1,28 @@
 version: "3.8"
-
-services: 
+services:
   arangodb:
     image: arangodb:latest
-    environment: 
+    environment:
       ARANGO_ROOT_PASSWORD: password
     ports:
       - "8529:8529"
     container_name: arangodb
-    volumes:
-      - arangodb_data_container:/var/lib/arangodb3
-      - arangodb_apps_data_container:/var/lib/arangodb3-apps
-
+    # volumes:
+    #  - arangodb_data_container:/var/lib/arangodb3
+    #  - arangodb_apps_data_container:/var/lib/arangodb3-apps
   app:
     build: .
     container_name: app
-
+    volumes:
+    - /home/urko/proyecto/3app/code:/code
   apache:
     image: httpd:latest
     container_name: my-apache-app
     ports:
     - '8080:80'
     volumes:
-    - ./website:/usr/local/apache2/htdocs
-    
-  volumes:
-    arangodb_data_container:
-    arangodb_apps_data_container:
+    - ./code:/usr/local/apache2/htdocs
+
+  #volumes:
+    #arangodb_data_container:
+    #arangodb_apps_data_container:

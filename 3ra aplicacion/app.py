@@ -20,6 +20,6 @@ queryResult = db.AQLQuery(aql, bindVars=bind)
 # guardar en log para mostrar en web
 now = datetime.now()
 time = now.strftime("%H:%M:%S")
-a = open('logs.txt','a')
+a = open('/home/urko/proyecto/3app/logs.txt','a')
 a.write('\n' +time+ ' ' +aql)
 a.close()

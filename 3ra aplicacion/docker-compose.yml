@@ -14,7 +14,7 @@ services:
     build: .
     container_name: app
     volumes:
-    - /home/urko/proyecto/3app/code:/code
+    - ./code:/code
   apache:
     image: httpd:latest
     container_name: my-apache-app

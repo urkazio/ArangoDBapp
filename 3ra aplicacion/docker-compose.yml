@@ -7,9 +7,6 @@ services:
     ports:
       - "8529:8529"
     container_name: arangodb
-    # volumes:
-    #  - arangodb_data_container:/var/lib/arangodb3
-    #  - arangodb_apps_data_container:/var/lib/arangodb3-apps
   app:
     build: .
     container_name: app
@@ -22,7 +19,3 @@ services:
     - '8080:80'
     volumes:
     - ./code:/usr/local/apache2/htdocs
-
-  #volumes:
-    #arangodb_data_container:
-    #arangodb_apps_data_container:

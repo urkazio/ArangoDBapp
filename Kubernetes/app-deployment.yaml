@@ -15,5 +15,3 @@ spec:
       containers:
       - name: mi-cliente
         image: urkazio/app
-        ports:
-        - containerPort: 80

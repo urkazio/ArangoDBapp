@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: arangodb-service
 spec:
+  selector:
+    bd: arangodb
   ports:
   - port: 8529
     targetPort: 8529
-  selector:
-    bd: arangodb

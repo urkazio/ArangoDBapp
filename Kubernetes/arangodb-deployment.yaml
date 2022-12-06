@@ -22,8 +22,8 @@ spec:
         ports:
         - containerPort: 8529
         env:
-          - name: ARANGO_ROOT_PASSWORD
-            value: "password"
+        - name: ARANGO_ROOT_PASSWORD
+          value: "password"
         volumeMounts: 
         - name: volumen-arangodb
           mountPath: /var/lib/arangodb3
